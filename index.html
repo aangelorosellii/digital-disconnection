@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Digital Disconnection | Submission</title>
+    <meta
+      name="description"
+      content="Submit your weekly screen time data from your phone."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./upload.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-card">
+        <p class="eyebrow">Digital Disconnection</p>
+        <h1>Phone Habits Experiment</h1>
+        <p class="hero-copy">
+          Please be honest, this experiment is completely anonymous. Your answers help us truly understand the impact of phone use on our habits.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">Participant Submission</p>
+            <h2>Simple phone-first form</h2>
+            <p class="helper-text">All fields are required.</p>
+          </div>
+          <span class="chip">4 questions</span>
+        </div>
+
+        <form id="uploadForm" class="stack-form">
+          <label class="field-label">Weekly average screen time</label>
+          <div class="time-grid">
+            <input
+              id="weeklyHours"
+              name="weeklyHours"
+              class="text-input"
+              type="number"
+              min="0"
+              max="23"
+              inputmode="numeric"
+              required
+              placeholder="Hours"
+            />
+            <input
+              id="weeklyMinutes"
+              name="weeklyMinutes"
+              class="text-input"
+              type="number"
+              min="0"
+              max="59"
+              inputmode="numeric"
+              required
+              placeholder="Minutes"
+            />
+          </div>
+          <p class="helper-text">Split the value into two boxes, for example `8` hours and `25` minutes.</p>
+
+          <div class="entry-editor">
+            <div class="panel-heading compact-heading">
+              <div>
+                <p class="section-kicker">Top 3 used app</p>
+                <h2 class="subheading">Three most used apps</h2>
+                <p class="helper-text">If an app is not in the list, select or type `Other`.</p>
+              </div>
+            </div>
+
+            <div class="entries-list fixed-three">
+              <div class="autocomplete-field">
+                <input id="topApp1" class="text-input" type="text" maxlength="60" placeholder="Top app 1" autocomplete="off" required />
+                <div class="autocomplete-list" id="topApp1Suggestions"></div>
+              </div>
+              <div class="autocomplete-field">
+                <input id="topApp2" class="text-input" type="text" maxlength="60" placeholder="Top app 2" autocomplete="off" required />
+                <div class="autocomplete-list" id="topApp2Suggestions"></div>
+              </div>
+              <div class="autocomplete-field">
+                <input id="topApp3" class="text-input" type="text" maxlength="60" placeholder="Top app 3" autocomplete="off" required />
+                <div class="autocomplete-list" id="topApp3Suggestions"></div>
+              </div>
+            </div>
+          </div>
+
+          <label class="field-label" for="pickupsCount">Number of pickups during the week</label>
+          <input
+            id="pickupsCount"
+            name="pickupsCount"
+            class="text-input"
+            type="number"
+            min="0"
+            inputmode="numeric"
+            required
+            placeholder="Ex. 420"
+          />
+
+          <label class="field-label" for="notificationsCount">Number of notifications during the week</label>
+          <input
+            id="notificationsCount"
+            name="notificationsCount"
+            class="text-input"
+            type="number"
+            min="0"
+            inputmode="numeric"
+            required
+            placeholder="Ex. 1280"
+          />
+
+          <button class="primary-button" id="submitButton" type="submit">
+            Submit data
+          </button>
+          <p class="status-text" id="statusText">
+            Fill in all required fields to submit your data.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <div class="modal-backdrop is-hidden" id="honestyModal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="honestyTitle">
+        <p class="section-kicker">Final Check</p>
+        <h2 id="honestyTitle">Were you honest?</h2>
+        <p class="hero-copy">If not, please enter the correct data.</p>
+        <div class="modal-actions">
+          <button class="primary-button" id="confirmHonestyButton" type="button">
+            Yes, I was honest
+          </button>
+          <button class="ghost-button" id="editHonestyButton" type="button">
+            No, let me edit my data
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Phone Habits Dashboard</title>
+    <meta
+      name="description"
+      content="Presentation dashboard for a university survey about phone habits."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js" defer></script>
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <main class="presentation-shell">
+      <section class="presentation-hero">
+        <div>
+          <p class="eyebrow">Digital Disconnection</p>
+          <h1>Phone Habits Experiment Dashboard</h1>
+          <p class="hero-copy">
+            A clean visual summary of screen time, pickups, notifications, and
+            the most frequently mentioned apps.
+          </p>
+        </div>
+
+        <div class="hero-stat-card">
+          <span class="hero-stat-label">Total Responses</span>
+          <strong class="hero-stat-value" id="totalResponses">0</strong>
+          <span class="hero-stat-helper" id="dataSourceLabel">Loading data...</span>
+        </div>
+      </section>
+
+      <section class="chart-grid">
+        <article class="chart-card">
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Chart 1</p>
+              <h2>Screen Time Distribution</h2>
+            </div>
+          </div>
+          <div class="chart-stage">
+            <canvas id="screenTimeChart" aria-label="Screen time distribution chart"></canvas>
+          </div>
+          <div class="insight-sentences">
+            <div class="insight-sentence insight-sentence-highlight">
+              <strong class="insight-big-number" id="screenTimePercent">--</strong>
+              <p class="insight-big-copy" id="screenTimeSentence">Waiting for screen time insight...</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="chart-card">
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Chart 2</p>
+              <h2>Pickups and Notifications Per Hour</h2>
+              <p class="card-copy">Based on the hours people are awake each day, on average 16.</p>
+            </div>
+          </div>
+          <div class="chart-stage">
+            <canvas id="comparisonChart" aria-label="Pickups versus notifications chart"></canvas>
+          </div>
+          <div class="insight-sentences">
+            <p class="insight-sentence" id="pickupSentence">Waiting for data...</p>
+            <p class="insight-sentence" id="notificationSentence">Waiting for data...</p>
+          </div>
+          <div class="insight-grid insight-grid-compact">
+            <div class="insight-card insight-card-compact">
+              <span class="insight-label">Pickups range</span>
+              <div class="range-pair">
+                <div class="range-stat">
+                  <span class="range-stat-label">Highest</span>
+                  <strong class="range-stat-value" id="highestPickupValue">--</strong>
+                </div>
+                <div class="range-stat">
+                  <span class="range-stat-label">Lowest</span>
+                  <strong class="range-stat-value" id="lowestPickupValue">--</strong>
+                </div>
+              </div>
+            </div>
+            <div class="insight-card insight-card-compact">
+              <span class="insight-label">Notifications range</span>
+              <div class="range-pair">
+                <div class="range-stat">
+                  <span class="range-stat-label">Highest</span>
+                  <strong class="range-stat-value" id="highestNotificationValue">--</strong>
+                </div>
+                <div class="range-stat">
+                  <span class="range-stat-label">Lowest</span>
+                  <strong class="range-stat-value" id="lowestNotificationValue">--</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="chart-card chart-card-wide">
+          <div class="card-head">
+            <div>
+              <p class="card-kicker">Chart 3</p>
+              <h2>Top Mentioned Apps</h2>
+              <p class="card-copy">The chart shows the 10 most frequently mentioned apps.</p>
+            </div>
+          </div>
+          <div class="chart-stage">
+            <canvas id="topAppsChart" aria-label="Top mentioned apps chart"></canvas>
+          </div>
+          <div class="insight-grid insight-grid-single">
+            <div class="insight-card">
+              <span class="insight-label">Most frequent category</span>
+              <strong class="insight-value" id="topCategoryName">--</strong>
+              <span class="insight-helper" id="categorySentence">Waiting for category insights...</span>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
